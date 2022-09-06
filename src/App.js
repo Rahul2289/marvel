@@ -4,8 +4,7 @@ import axios from "axios";
 import Main from "./screens/Main";
 import NotFound from "./components/NotFound/NotFound";
 import CardDetails from "./components/Card/CardDetails";
-let key = "3b55a1343963b11d461cfb3f5ae051f3";
-let hash = "662ade192dc5f184a185f98bedd34310";
+
 function App() {
   const [apidata, setApiData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,7 @@ function App() {
             catogery === "characters"
               ? `nameStartsWith=${query}`
               : `titleStartsWith=${query}`
-          }&ts=1&apikey=${key}&hash=${hash}`
+          }&ts=1&apikey=${process.env.key}&hash=${process.env.hash}`
         );
         setApiData(response.data.data.results);
         setLoading(false);
