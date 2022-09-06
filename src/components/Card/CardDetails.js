@@ -3,8 +3,7 @@ import style from "./Card.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "./../Loader/Loading";
-let key = "3b55a1343963b11d461cfb3f5ae051f3";
-let hash = "662ade192dc5f184a185f98bedd34310";
+
 const CardDetails = ({ catogery }) => {
   const [list, setList] = useState([]);
   const { id } = useParams();
@@ -12,7 +11,7 @@ const CardDetails = ({ catogery }) => {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await axios.get(
-        `https://gateway.marvel.com/v1/public/${catogery}/${id}?ts=1&apikey=${key}&hash=${hash}`
+        `https://gateway.marvel.com/v1/public/${catogery}/${id}?ts=1&apikey=${process.env.key}&hash=${process.env.hash}`
       );
 
       setList(res.data.data.results);
