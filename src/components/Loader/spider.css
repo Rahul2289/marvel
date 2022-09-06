@@ -1,0 +1,23 @@
+.spider {
+  width: 100px;
+  animation: spidy 2s ease infinite alternate-reverse;
+  transition: transform ease 2s;
+}
+
+@keyframes spidy {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(50%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  75% {
+    transform: translateY(150%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}

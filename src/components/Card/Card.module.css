@@ -1,0 +1,91 @@
+.cardContainer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cardContainer h4 {
+  color: white;
+  letter-spacing: 0.5px;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+.card {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 2rem;
+}
+.cardWrapper {
+  transition: all 0.5s ease;
+}
+.cardWrapper:hover {
+  transform: scale(1.05);
+  rotate: 350deg;
+}
+
+/* cardDetails */
+.cardDetailsContainer {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: linear-gradient(
+      to right,
+      rgba(51, 71, 82, 0.7),
+      rgba(150, 20, 20, 0.7)
+    ),
+    url("../../accets/images/wallpaperflare.com_wallpaper.jpg");
+
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardDetailsContainer .wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 0 4rem;
+}
+
+.cardDetailsContainer .wrapper img {
+  width: 320px;
+  border-radius: 5px;
+  transition: rotate ease-in-out 1s;
+  cursor: pointer;
+}
+
+.cardDetailsContainer .wrapper img:hover {
+  rotate: 45deg;
+}
+.cardDetailsContainer .wrapper p {
+  color: white;
+  font-size: 18px;
+}
+.cardDetailsContainer .wrapper .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cardDetailsContainer .wrapper .info h1 {
+  color: #ed213a;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 700px) {
+  .cardDetailsContainer .wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,26 @@
+.filterContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filterContainer .btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.filterContainer .btnGroup button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  background: rgb(34, 132, 185);
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+.filterContainer .btnGroup .active {
+  background: rgba(150, 20, 20, 0.9);
+}

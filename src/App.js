@@ -1,24 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Main from "./screens/Main";
+import NotFound from "./components/NotFound/NotFound";
+import CardDetails from "./components/Card/CardDetails";
+let key = "3b55a1343963b11d461cfb3f5ae051f3";
+let hash = "662ade192dc5f184a185f98bedd34310";
 function App() {
+  const [apidata, setApiData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("a");
+  const [catogery, setcatogery] = useState("characters");
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const response = await axios.get(
+          `https://gateway.marvel.com/v1/public/${catogery}?${
+            catogery === "characters"
+              ? `nameStartsWith=${query}`
+              : `titleStartsWith=${query}`
+          }&ts=1&apikey=${key}&hash=${hash}`
+        );
+        setApiData(response.data.data.results);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchApi();
+  }, [query, catogery]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main
+              loading={loading}
+              apidata={apidata}
+              setQuery={setQuery}
+              catogery={catogery}
+              setcatogery={setcatogery}
+            />
+          }
+        />
+        <Route
+          path="/details/:id"
+          element={<CardDetails catogery={catogery} />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

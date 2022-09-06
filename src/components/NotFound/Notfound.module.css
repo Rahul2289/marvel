@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+      to right,
+      rgba(51, 71, 82, 0.7),
+      rgba(150, 20, 20, 0.7)
+    ),
+    url("../../accets/images/wallpaperflare.com_wallpaper\ \(1\).jpg");
+
+  background-size: cover;
+}
+.container img {
+  width: 80%;
+  height: 80%;
+}
